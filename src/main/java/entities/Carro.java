@@ -1,6 +1,14 @@
 package entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="Carro")
 public class Carro {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String modelo;
     private String marca;
     private Integer ano;
@@ -10,11 +18,16 @@ public class Carro {
 
     }
 
-    public Carro(String modelo, String marca, Integer ano, Double valor){
+    public Carro(Long id, String modelo, String marca, Integer ano, Double valor){
+        this.id = id;
         this.modelo = modelo;
         this.marca = marca;
         this.ano = ano;
         this.valor = valor;
+    }
+
+    public Long getId(){
+        return id;
     }
 
     public String getModelo(){
