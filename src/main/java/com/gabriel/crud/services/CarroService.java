@@ -5,13 +5,19 @@ import com.gabriel.crud.repositories.CarroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CarroService {
 
     @Autowired
     private CarroRepository carroRepository;
 
-    public Carro createCarro(Carro carro){
+    public Carro criarCarro(Carro carro){
         return carroRepository.save(carro);
+    }
+
+    public List<Carro> listarCarros(){
+        return carroRepository.findAll();
     }
 }
