@@ -1,29 +1,22 @@
-package entities;
+package com.gabriel.crud.dto;
 
-import jakarta.persistence.*;
+import com.gabriel.crud.entities.Carro;
+import org.springframework.beans.BeanUtils;
 
-@Entity
-@Table(name="Carro")
-public class Carro {
+public class CarroDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String modelo;
     private String marca;
     private Integer ano;
     private Double valor;
 
-    public Carro(){
+    public CarroDTO(){
 
     }
 
-    public Carro(Long id, String modelo, String marca, Integer ano, Double valor){
-        this.id = id;
-        this.modelo = modelo;
-        this.marca = marca;
-        this.ano = ano;
-        this.valor = valor;
+    public CarroDTO(Carro entity){
+        BeanUtils.copyProperties(entity,this);
     }
 
     public Long getId(){
@@ -61,9 +54,4 @@ public class Carro {
     public void setValor(Double valor){
         this.valor = valor;
     }
-
-
-
 }
-
-

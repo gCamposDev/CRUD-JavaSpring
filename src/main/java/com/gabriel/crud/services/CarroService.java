@@ -1,4 +1,4 @@
-package services;
+package com.gabriel.crud.services;
 
 import org.springframework.stereotype.Service;
 
