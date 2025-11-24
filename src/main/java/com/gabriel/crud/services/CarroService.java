@@ -20,4 +20,9 @@ public class CarroService {
     public List<Carro> listarCarros(){
         return carroRepository.findAll();
     }
+
+    public Carro listarCarroPeloId(Long id){
+        return carroRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Carro não encontrado"));
+    }
 }

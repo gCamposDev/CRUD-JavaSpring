@@ -23,4 +23,12 @@ public class CarroController {
     public List<Carro> listarCarros(){
         return carroService.listarCarros();
     }
+
+    @GetMapping("/{id}")
+    public Carro listarCarroPeloId(@PathVariable Long id){
+        return carroService.listarCarroPeloId(id);
+
+    }
+
+
 }
