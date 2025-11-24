@@ -30,5 +30,10 @@ public class CarroController {
 
     }
 
+    @PutMapping("/{id}")
+    public Carro atualizarCarroPeloId(@PathVariable Long id, @RequestBody Carro carro){
+        return carroService.atualizarCarroPeloId(id,carro);
+    }
+
 
 }
