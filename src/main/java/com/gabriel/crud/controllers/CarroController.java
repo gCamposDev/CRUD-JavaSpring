@@ -35,5 +35,10 @@ public class CarroController {
         return carroService.atualizarCarroPeloId(id,carro);
     }
 
+    @DeleteMapping("/{id}")
+    public void deletarCarroPeloId(@PathVariable Long id){
+        carroService.deletarCarroPeloId(id);
+    }
+
 
 }

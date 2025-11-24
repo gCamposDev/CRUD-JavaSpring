@@ -35,4 +35,8 @@ public class CarroService {
 
         return carroRepository.save(carroEntity);
     }
+
+    public void deletarCarroPeloId(Long id){
+        carroRepository.deleteById(id);
+    }
 }
