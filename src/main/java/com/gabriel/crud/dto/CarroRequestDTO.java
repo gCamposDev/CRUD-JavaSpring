@@ -3,25 +3,21 @@ package com.gabriel.crud.dto;
 import com.gabriel.crud.entities.Carro;
 import org.springframework.beans.BeanUtils;
 
-public class CarroDTO {
+public class CarroRequestDTO {
 
-    private Long id;
     private String modelo;
     private String marca;
     private Integer ano;
     private Double valor;
 
-    public CarroDTO(){
+    public CarroRequestDTO(){
 
     }
 
-    public CarroDTO(Carro entity){
+    public CarroRequestDTO(Carro entity){
         BeanUtils.copyProperties(entity,this);
     }
 
-    public Long getId(){
-        return id;
-    }
 
     public String getModelo(){
         return modelo;

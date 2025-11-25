@@ -1,5 +1,7 @@
 package com.gabriel.crud.controllers;
 
+import com.gabriel.crud.dto.CarroRequestDTO;
+import com.gabriel.crud.dto.CarroResponseDTO;
 import com.gabriel.crud.entities.Carro;
 import com.gabriel.crud.services.CarroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,23 +17,23 @@ public class CarroController {
     private CarroService carroService;
 
     @PostMapping
-    public Carro criarCarro(@RequestBody Carro carro){
-        return carroService.criarCarro(carro);
+    public CarroResponseDTO criarCarro(@RequestBody CarroRequestDTO carroRequestDTO){
+        return carroService.criarCarro(carroRequestDTO);
     }
 
     @GetMapping
-    public List<Carro> listarCarros(){
+    public List<CarroResponseDTO> listarCarros(){
         return carroService.listarCarros();
     }
 
     @GetMapping("/{id}")
-    public Carro listarCarroPeloId(@PathVariable Long id){
+    public CarroResponseDTO listarCarroPeloId(@PathVariable Long id){
         return carroService.listarCarroPeloId(id);
 
     }
 
     @PutMapping("/{id}")
-    public Carro atualizarCarroPeloId(@PathVariable Long id, @RequestBody Carro carro){
+    public CarroResponseDTO atualizarCarroPeloId(@PathVariable Long id, @RequestBody CarroRequestDTO carro){
         return carroService.atualizarCarroPeloId(id,carro);
     }
 
