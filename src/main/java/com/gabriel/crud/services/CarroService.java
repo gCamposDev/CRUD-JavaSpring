@@ -50,10 +50,20 @@ public class CarroService {
     public CarroResponseDTO atualizarCarroPeloId(Long id, CarroRequestDTO carro){
         Carro carroEntity = carroRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Carro não encontrado"));
-        carroEntity.setModelo(carro.getModelo());
-        carroEntity.setMarca(carro.getMarca());
-        carroEntity.setAno(carro.getAno());
-        carroEntity.setValor(carro.getValor());
+
+        if(carro.getModelo() != null){
+            carroEntity.setModelo(carro.getModelo());
+        }
+        if(carro.getMarca() != null){
+            carroEntity.setMarca(carro.getMarca());
+        }
+        if(carro.getAno() != null){
+            carroEntity.setAno(carro.getAno());
+        }
+        if(carro.getValor() != null){
+            carroEntity.setValor(carro.getValor());
+        }
+
 
         carroEntity = carroRepository.save(carroEntity);
 
